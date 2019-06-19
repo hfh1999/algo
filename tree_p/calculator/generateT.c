@@ -18,11 +18,13 @@ void grammarTree(char * str)
     Expr *  expression  = initW_O(str); // create a struct "W_O"
     while( getW_O(expression,item))
     {
-        if (item->opt.priority >= PREV )
+        static int prev = 0; // previous priority
+        if (item->opt.priority >= prev )
             treeGdown(tree,buildP,item);
         else if(item->opt.priority == NONE)
-            treeExtra(tree,bulidP,item->data);
+            treeExtra(tree,bulidP,item);
         else
-            treeGup(tree,buildP,item->data);
+            treeGup(tree,buildP,item);
+        prev = item->opt.priority;
     }
 }

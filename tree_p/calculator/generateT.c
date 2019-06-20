@@ -19,6 +19,11 @@ void grammarTree(char * str)
     while( getW_O(expression,item))
     {
         static int prev = 0; // previous priority
+        BTnode * tree;
+        if(( tree = inittree()) ==  NULL)
+            printf("error:Init grammar tree.\n");
+        BTnode * buildP = tree; //buildP is a tool pointer;
+
         if (item->opt.priority >= prev )
             treeGdown(tree,buildP,item);
         else if(item->opt.priority == NONE)

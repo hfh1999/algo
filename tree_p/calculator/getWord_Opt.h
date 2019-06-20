@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define NONE 0
+#define NONE -1
 #define MAX 50
 // SPOT -+*/  '\0'
 typedef struct Oprator{

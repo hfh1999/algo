@@ -1,7 +1,7 @@
 #include "getWord_Opt.h"
 typedef struct BTnode{
 //    int data;
-    word_opt * itemp;
+    int data; //store integer or char;
     struct BTnode * leftchild;
     struct BTnode * rightchild;
 }BTnode;

@@ -18,8 +18,28 @@ int treeGdown(BTnode * tree,BTnode ** buildP,word_opt item)
 {
     BTnode * fetch;
     if( *buildP != NULL  )
+    {
         fetch = (BTnode *)malloc(sizeof(BTnode));
-        fetch->itemp=(word_opt *)malloc(sizeof(word_opt));
-        *()
+        fetch->data = item.value;
+        (*buildP)->leftchild = fetch;
+        (*buildP)->data = item.opt.optchar;
+        
+        *buildP = (*buildP)->rightchild;
+    }
+    else // build the down-er tree(high priority)
+    {
+        fetch = (BTnode *)malloc(sizeof(BTnode));
+        fetch->data = item.opt.optchar;
+        fetch->rightchild = NULL;
+        fetch->leftchild = NULL;
+        (*buildP)->rightchild = fetch;
+        *buildP = fetch;
+
+        fetch = (BTnode *)malloc(sizeof(BTnode));
+        fetch->data = item.value;
+        (*buildP)->leftchild = fetch;
+        
+        *buildP = (*buildP)->rightchild;
+    }
 
 }
